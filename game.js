@@ -20,26 +20,26 @@ var config = {
 var game = new Phaser.Game(config);
 
 function preload() {
-    this.load.setBaseURL('http://labs.phaser.io');
+    // this.load.setBaseURL('http://labs.phaser.io');
     //đạn
-    this.load.image('bullet', 'assets/sprites/bullet.png');
+    this.load.image('bullet', 'assets/bullet.png');
     //đạn địch
-    this.load.image('enemyBullet', 'assets/sprites/enemy-bullet.png');
+    this.load.image('enemyBullet', 'assets/enemy-bullet.png');
     //địch
-    this.load.spritesheet('invader', 'https://samme.github.io/phaser-examples-mirror/assets/games/invaders/invader32x32x4.png', {
+    this.load.spritesheet('invader', 'assets/invader32x32x4.png', {
         frameWidth: 32,
         frameHeight: 32
     });
     //phi thuyền
-    this.load.image('ship', 'assets/sprites/player.png');
+    this.load.image('ship', 'assets/player.png');
     //hiệu ứng lửa
-    this.load.spritesheet('kaboom', 'assets/sprites/explosion.png', {
+    this.load.spritesheet('kaboom', 'assets/explosion.png', {
         frameWidth: 128,
         frameHeight: 128
     });
-    this.load.image('starfield', 'assets/skies/starfield.png');
+    this.load.image('starfield', 'assets/starfield.png');
     //nền
-    // this.load.image('background', 'https://examples.phaser.io/assets/games/starstruck/background2.png');
+    this.load.image('background', 'assets/background2.png');
 
 }
 
