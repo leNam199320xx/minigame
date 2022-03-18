@@ -20,7 +20,7 @@ var config = {
 var game = new Phaser.Game(config);
 
 function preload() {
-    // this.load.setBaseURL('http://labs.phaser.io');
+    this.load.setBaseURL('https://raw.githubusercontent.com/leNam199320xx/minigame/master/');
     //đạn
     this.load.image('bullet', 'assets/bullet.png');
     //đạn địch
@@ -134,7 +134,6 @@ function create() {
 }
 
 function update(time, delta) {
-    gridUpdate();
     if (cursors.left.isDown) {
         ship.x -= speed * delta;
     }
@@ -150,6 +149,22 @@ function update(time, delta) {
 
             lastFired = time + 50;
         }
+    }
+    gridUpdate();
+    setBoundingBox(0, 0, config.width, config.height);
+}
+function setBoundingBox(x1, y1, x2, y2) {
+    if (ship.x < x1) {
+        ship.x = x1;
+    }
+    if (ship.x > x2) {
+        ship.x = x2;
+    }
+    if (ship.y < y1) {
+        ship.y = y1;
+    }
+    if (ship.y > y2) {
+        ship.y = y2;
     }
 }
 
