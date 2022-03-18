@@ -39,7 +39,7 @@ function preload() {
     });
     this.load.image('starfield', 'assets/starfield.png');
     //nền
-    this.load.image('background', 'assets/background2.png');
+    this.load.image('background', 'assets/covid-virus-backgroud.jpg');
 
 }
 
@@ -101,6 +101,8 @@ function create() {
         }
 
     });
+    background = this.add.image(240, 0, 'background');
+    background.setScale(0.3);
 
     bullets = this.add.group({
         classType: Bullet,
