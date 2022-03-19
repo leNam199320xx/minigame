@@ -39,11 +39,15 @@ function preload() {
     });
     this.load.image('starfield', 'assets/starfield.png');
     //nền
-    this.load.image('background', 'assets/covid-virus-backgroud-2.jpg');
+    this.load.image('background', 'assets/covid-virus-backgroud-2.png');
+
+    this.load.image('button', 'https://labs.phaser.io/assets/sprites/button-bg.png');
+    this.load.image('buttonText', 'https://labs.phaser.io/assets/sprites/button-text.png');
 
 }
 
 var ship;
+var isStart = false;
 var aliens;
 var bullets;
 var bulletTime = 0;
@@ -74,6 +78,20 @@ var gridOption = {
     stepY: 0.0
 }
 function create() {
+
+    background = this.add.image(0, -240, 'background');
+    background.setScale(0.28);
+
+
+    btnBg = this.add.image(0, 0, 'button').setInteractive();
+    btnText = this.add.image(0, 0, 'buttonText');
+
+    container = this.add.container(240, 600, [background, btnBg, btnText]);
+
+    btnBg.once('pointerup', loadImage, this);
+
+}
+function loadImage() {
     var Bullet = new Phaser.Class({
 
         Extends: Phaser.GameObjects.Image,
@@ -101,9 +119,6 @@ function create() {
         }
 
     });
-    background = this.add.image(240, 420, 'background');
-    background.setScale(0.28);
-
     bullets = this.add.group({
         classType: Bullet,
         maxSize: 10,
@@ -133,9 +148,14 @@ function create() {
 
     this.anims.staggerPlay('invader1', group.getChildren(), 0);
 
-}
 
+    isStart = true;
+    container.setX(-240);
+}
 function update(time, delta) {
+    if (isStart == false) {
+        return;
+    }
     if (cursors.left.isDown) {
         ship.x -= speed * delta;
     }
