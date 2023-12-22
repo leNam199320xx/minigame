@@ -25,19 +25,39 @@ function update ()
     this.graphics.clear();
     this.graphics.lineStyle(1, 0x00ff00, 1);
     this.curve = drawCircle(["test1", "test2"]);
+    drawCenterPoint
     this.curve.draw(this.graphics);
 }
 
 function drawCircle(listOfItem){
     if(typeof(listOfItem) == "object"){
-        //draw item
+        const graphics = this.add.graphics();
 
-        const startPoint = new Phaser.Math.Vector2(100, 500);
-        const controlPoint1 = new Phaser.Math.Vector2(50, 100);
-        const controlPoint2 = new Phaser.Math.Vector2(600, 100);
-        const endPoint = new Phaser.Math.Vector2(700, 500);
+        graphics.lineStyle(4, 0xff00ff, 1);
 
-        return new Phaser.Curves.CubicBezier(startPoint, controlPoint1, controlPoint2, endPoint);
+        //  Without this the arc will appear closed when stroked
+        graphics.beginPath();
+
+        // arc (x, y, radius, startAngle, endAngle, anticlockwise)
+        graphics.arc(400, 300, 100, Phaser.Math.DegToRad(45), Phaser.Math.DegToRad(180), true);
+
+        graphics.strokePath();
+
+        //  Without this the arc will appear closed when stroked
+        graphics.beginPath();
+
+        graphics.lineStyle(4, 0x0000ff, 1);
+        // arc (x, y, radius, startAngle, endAngle, anticlockwise)
+        graphics.arc(400, 300, 100, Phaser.Math.DegToRad(180), Phaser.Math.DegToRad(90), true);
+        //  Uncomment this to close the path before stroking
+        // graphics.closePath();
+
+        graphics.strokePath();
     }
   
+}
+
+function drawCenterPoint(x, y){
+    this.graphics.fillStyle(0xff0000, 1);
+    this.graphics.fillCircle(x, y, 16);
 }
