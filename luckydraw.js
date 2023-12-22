@@ -10,6 +10,7 @@ var config = {
 };
 
 var game = new Phaser.Game(config);
+var graphics;
 var degree = 360;
 function preload ()
 {
@@ -17,44 +18,37 @@ function preload ()
 
 function create ()
 {
-    this.graphics = this.add.graphics();
+    graphics = this.add.graphics();
 }
 
 function update ()
 {        
-    this.graphics.clear();
-    this.curve = drawCircle(["test1", "test2"]);
-    drawCenterPoint(400, 300)
-    this.curve.draw(this.graphics);
+    graphics.clear();
+    drawCircle(["test1", "test2"]);
 }
 
 function drawCircle(listOfItem){
     if(typeof(listOfItem) == "object"){
-        this.graphics.lineStyle(4, 0xff00ff, 1);
+        graphics.lineStyle(4, 0xff00ff, 1);
 
         //  Without this the arc will appear closed when stroked
-        this.graphics.beginPath();
+        graphics.beginPath();
 
         // arc (x, y, radius, startAngle, endAngle, anticlockwise)
-        this.graphics.arc(400, 300, 100, Phaser.Math.DegToRad(90), Phaser.Math.DegToRad(180), true);
+        graphics.arc(400, 300, 100, Phaser.Math.DegToRad(90), Phaser.Math.DegToRad(180), true);
 
-        this.graphics.strokePath();
+        graphics.strokePath();
 
         //  Without this the arc will appear closed when stroked
-        this.graphics.beginPath();
+        graphics.beginPath();
 
-        this.graphics.lineStyle(4, 0x0000ff, 1);
+        graphics.lineStyle(4, 0x0000ff, 1);
         // arc (x, y, radius, startAngle, endAngle, anticlockwise)
-        this.graphics.arc(400, 300, 100, Phaser.Math.DegToRad(180), Phaser.Math.DegToRad(90), true);
+        graphics.arc(400, 300, 100, Phaser.Math.DegToRad(180), Phaser.Math.DegToRad(90), true);
         //  Uncomment this to close the path before stroking
         // graphics.closePath();
 
-        this.graphics.strokePath();
+        graphics.strokePath();
     }
   
-}
-
-function drawCenterPoint(x, y){
-    this.graphics.fillStyle(0xff0000, 1);
-    this.graphics.fillCircle(x, y, 16);
 }
