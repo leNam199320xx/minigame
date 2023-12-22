@@ -17,15 +17,15 @@ function preload ()
 
 function create ()
 {
-    game.graphics = game.add.graphics();
+    this.graphics = this.add.graphics();
 }
 
 function update ()
 {        
-    game.graphics.clear();
-    game.graphics.lineStyle(1, 0x00ff00, 1);
+    this.graphics.clear();
+    this.graphics.lineStyle(1, 0x00ff00, 1);
     drawCircle(["test1", "test2"]);
-    game.curve.draw(game.graphics);
+    this.curve.draw(this.graphics);
 }
 
 function drawCircle(listOfItem){
@@ -37,7 +37,7 @@ function drawCircle(listOfItem){
         const controlPoint2 = new Phaser.Math.Vector2(600, 100);
         const endPoint = new Phaser.Math.Vector2(700, 500);
 
-        game.curve = new Phaser.Curves.CubicBezier(startPoint, controlPoint1, controlPoint2, endPoint);
+        this.curve = new Phaser.Curves.CubicBezier(startPoint, controlPoint1, controlPoint2, endPoint);
     }
   
 }
