@@ -23,9 +23,8 @@ function create ()
 function update ()
 {        
     this.graphics.clear();
-    this.graphics.lineStyle(1, 0x00ff00, 1);
     this.curve = drawCircle(["test1", "test2"]);
-    drawCenterPoint
+    drawCenterPoint(400, 300)
     this.curve.draw(this.graphics);
 }
 
