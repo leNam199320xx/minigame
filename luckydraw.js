@@ -35,7 +35,7 @@ function drawCircle(listOfItem){
         graphics.beginPath();
 
         // arc (x, y, radius, startAngle, endAngle, anticlockwise)
-        graphics.arc(400, 300, 100, Phaser.Math.DegToRad(90), Phaser.Math.DegToRad(180), true);
+        graphics.slice(400, 300, 100, Phaser.Math.DegToRad(90), Phaser.Math.DegToRad(180), true);
 
         graphics.strokePath();
 
@@ -44,7 +44,7 @@ function drawCircle(listOfItem){
 
         graphics.lineStyle(4, 0x0000ff, 1);
         // arc (x, y, radius, startAngle, endAngle, anticlockwise)
-        graphics.arc(400, 300, 100, Phaser.Math.DegToRad(180), Phaser.Math.DegToRad(90), true);
+        graphics.slice(400, 300, 100, Phaser.Math.DegToRad(180), Phaser.Math.DegToRad(90), true);
         //  Uncomment this to close the path before stroking
         // graphics.closePath();
 
