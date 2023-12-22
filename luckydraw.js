@@ -24,7 +24,7 @@ function update ()
 {        
     this.graphics.clear();
     this.graphics.lineStyle(1, 0x00ff00, 1);
-    drawCircle(["test1", "test2"]);
+    this.curve = drawCircle(["test1", "test2"]);
     this.curve.draw(this.graphics);
 }
 
@@ -37,7 +37,7 @@ function drawCircle(listOfItem){
         const controlPoint2 = new Phaser.Math.Vector2(600, 100);
         const endPoint = new Phaser.Math.Vector2(700, 500);
 
-        this.curve = new Phaser.Curves.CubicBezier(startPoint, controlPoint1, controlPoint2, endPoint);
+        return new Phaser.Curves.CubicBezier(startPoint, controlPoint1, controlPoint2, endPoint);
     }
   
 }
