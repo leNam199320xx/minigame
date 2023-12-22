@@ -31,28 +31,26 @@ function update ()
 
 function drawCircle(listOfItem){
     if(typeof(listOfItem) == "object"){
-        const graphics = this.add.graphics();
-
-        graphics.lineStyle(4, 0xff00ff, 1);
+        this.graphics.lineStyle(4, 0xff00ff, 1);
 
         //  Without this the arc will appear closed when stroked
-        graphics.beginPath();
+        this.graphics.beginPath();
 
         // arc (x, y, radius, startAngle, endAngle, anticlockwise)
-        graphics.arc(400, 300, 100, Phaser.Math.DegToRad(45), Phaser.Math.DegToRad(180), true);
+        this.graphics.arc(400, 300, 100, Phaser.Math.DegToRad(90), Phaser.Math.DegToRad(180), true);
 
-        graphics.strokePath();
+        this.graphics.strokePath();
 
         //  Without this the arc will appear closed when stroked
-        graphics.beginPath();
+        this.graphics.beginPath();
 
-        graphics.lineStyle(4, 0x0000ff, 1);
+        this.graphics.lineStyle(4, 0x0000ff, 1);
         // arc (x, y, radius, startAngle, endAngle, anticlockwise)
-        graphics.arc(400, 300, 100, Phaser.Math.DegToRad(180), Phaser.Math.DegToRad(90), true);
+        this.graphics.arc(400, 300, 100, Phaser.Math.DegToRad(180), Phaser.Math.DegToRad(90), true);
         //  Uncomment this to close the path before stroking
         // graphics.closePath();
 
-        graphics.strokePath();
+        this.graphics.strokePath();
     }
   
 }
